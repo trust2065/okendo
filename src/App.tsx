@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import RankBar from "./components/RankBar";
 
 const App: React.FC = () => {
+  const handleClick = (v: number) => {
+    setCurrentRank(v);
+  };
+
+  const [currentRank, setCurrentRank] = useState(1);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RankBar
+        currentRank={currentRank}
+        handleClick={handleClick}
+        hasStroke={true}
+        // rankRange={{ min: 1, max: 15, step: 1 }}
+      />
     </div>
   );
-}
+};
 
 export default App;
