@@ -17,3 +17,7 @@ I use TypeScript to check props types
 ## Props type check on run time
 
 `prop-types`
+
+Extract constant values thanks to enum in TypeScript
+
+`RankTypes, ButtonSelectorTypes, Colors, FontSize`

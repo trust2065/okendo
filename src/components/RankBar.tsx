@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import Prototypes from "prop-types";
+import { Colors, FontSize } from "../Utilities/Enumerations";
 
-interface RankBarProps {
+interface IRankBarProps {
   currentRank: number;
   hasStroke?: boolean;
   rankRange?: { min: number; max: number; step: number };
@@ -10,7 +11,7 @@ interface RankBarProps {
   name: string;
 }
 
-const RankBar: React.FC<RankBarProps> = ({
+const RankBar: React.FC<IRankBarProps> = ({
   currentRank,
   hasStroke = false,
   rankRange = { min: 1, max: 5, step: 1 },
@@ -20,6 +21,7 @@ const RankBar: React.FC<RankBarProps> = ({
   const rankButtons = [];
   let text: string = "";
   let align: string = "";
+
   for (let i = rankRange.min; i <= rankRange.max; i += rankRange.step) {
     if (hasStroke && i !== rankRange.min) {
       rankButtons.push(
@@ -38,10 +40,9 @@ const RankBar: React.FC<RankBarProps> = ({
       align = "";
     }
     rankButtons.push(
-      <RankButton>
+      <RankButton key={`rankButton_${i}`}>
         <RankValue
           isActive={currentRank >= i}
-          key={`rankButton${i}`}
           onClick={() => handleClick(name, i)}
         >
           {i}
@@ -69,10 +70,10 @@ RankBar.propTypes = {
   handleClick: Prototypes.func.isRequired
 };
 
-interface RankValueProps {
+interface IRankValueProps {
   isActive: boolean;
 }
-interface RankLineProps {
+interface IRankLineProps {
   isActive: boolean;
 }
 
@@ -82,14 +83,15 @@ const Container = styled.div`
   margin: 0.5rem 0 2.5rem;
 `;
 
-const RankValue = styled.button<RankValueProps>`
+const RankValue = styled.button<IRankValueProps>`
   border: none;
-  background: ${props => (props.isActive ? "#00ca9b" : "#d9d9d9")};
+  background: ${props => (props.isActive ? Colors.grassGreen : Colors.grey)};
   border-radius: 50%;
-  color: ${props => (props.isActive ? "#fff" : "#272d45")};
-  height: 2rem;
-  width: 2rem;
-  font-size: 0.9rem;
+  color: ${props => (props.isActive ? Colors.white : Colors.black)};
+  height: 1.8rem;
+  width: 1.8rem;
+  line-height: 1.8;
+  font-size: ${FontSize.medium};
   :active {
     outline: none;
     border: none;
@@ -100,19 +102,19 @@ const RankValue = styled.button<RankValueProps>`
   }
   :hover {
     background: #fff;
-    box-shadow: inset 0 0 0 4px #00ca9b;
-    color: #00ca9b;
+    box-shadow: inset 0 0 0 4px ${Colors.grassGreen};
+    color: ${Colors.grassGreen};
     cursor: pointer;
     transition: transform 0.2s;
     transform: scale(1.2);
   }
 `;
 
-const RankLine = styled.div<RankLineProps>`
+const RankLine = styled.div<IRankLineProps>`
   position: relative;
   flex-grow: 1;
   ::before {
-    background: ${props => (props.isActive ? "#00ca9b" : "#d9d9d9")};
+    background: ${props => (props.isActive ? Colors.grassGreen : Colors.grey)};
     content: "";
     height: 4px;
     left: 0;
@@ -126,8 +128,8 @@ const RankMeaning = styled.div<{ align: string }>`
   position: absolute;
   top: 100%;
   margin-top: 5px;
-  color: #8f9097;
-  font-size: 0.9rem;
+  color: ${Colors.darkGrey};
+  font-size: ${FontSize.small};
   ${props => props.align === "left" && "left: 0"}
   ${props => props.align === "right" && "right: 0"}
 }
