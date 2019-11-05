@@ -1463,7 +1463,7 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.1.tgz#48fd98c1561fe718b61733daed46ff115b496e18"
   integrity sha512-eqz8c/0kwNi/OEHQfvIuJVLTst3in0e7uTKeuY+WL/zfKn0xVujOTp42bS/vUUokhK5P2BppLd9JXMOMHcgbjA==
 
-"@types/react-dom@*", "@types/react-dom@16.9.3":
+"@types/react-dom@16.9.3":
   version "16.9.3"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.3.tgz#4006ff0e13958af91313869077c04cb20d9b9d04"
   integrity sha512-FUuZKXPr9qlzUT9lhuzrZgLjH63TvNn28Ch3MvKG4B+F52zQtO8DtE0Opbncy3xaucNZM2WIPfuNTgkbKx5Brg==
@@ -1476,22 +1476,6 @@
   integrity sha512-LTXMKEyGA+x4kadmjujX6yAgpcaZutJ01lC7zLJWCULaZg7Qw5/3iOQpwIJRUcOc+a8A2RR7rSxplehVf9IuhA==
   dependencies:
     "@types/prop-types" "*"
-    "@types/react" "*"
-
-"@types/react-select@^3.0.8":
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/@types/react-select/-/react-select-3.0.8.tgz#b824a12d438dd493c30ffff49a805f797602a837"
-  integrity sha512-0763TXYZc8bTiHM+DUnWoy9Rg5mk6PxYWBrEe6Fkjgc0Kv0r1RqjZk9/BrK4wdM0RNjYjixlFPnUhOJb76sMGg==
-  dependencies:
-    "@types/react" "*"
-    "@types/react-dom" "*"
-    "@types/react-transition-group" "*"
-
-"@types/react-transition-group@*":
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.2.3.tgz#4924133f7268694058e415bf7aea2d4c21131470"
-  integrity sha512-Hk8jiuT7iLOHrcjKP/ZVSyCNXK73wJAUz60xm0mVhiRujrdiI++j4duLiL282VGxwAgxetHQFfqA29LgEeSkFA==
-  dependencies:
     "@types/react" "*"
 
 "@types/react@*", "@types/react@16.9.11":
@@ -2777,11 +2761,6 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
-
-classnames@^2.2.3:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
-  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
 clean-css@4.2.x:
   version "4.2.1"
@@ -6390,7 +6369,7 @@ locate-path@^3.0.0:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
 
-lodash._reinterpolate@~3.0.0:
+lodash._reinterpolate@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
   integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
@@ -6411,19 +6390,19 @@ lodash.sortby@^4.7.0:
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
 lodash.template@^4.2.4, lodash.template@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.4.0.tgz#e73a0385c8355591746e020b99679c690e68fba0"
-  integrity sha1-5zoDhcg1VZF0bgILmWecaQ5o+6A=
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.5.0.tgz#f976195cf3f347d0d5f52483569fe8031ccce8ab"
+  integrity sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==
   dependencies:
-    lodash._reinterpolate "~3.0.0"
+    lodash._reinterpolate "^3.0.0"
     lodash.templatesettings "^4.0.0"
 
 lodash.templatesettings@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/lodash.templatesettings/-/lodash.templatesettings-4.1.0.tgz#2b4d4e95ba440d915ff08bc899e4553666713316"
-  integrity sha1-K01OlbpEDZFf8IvImeRVNmZxMxY=
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/lodash.templatesettings/-/lodash.templatesettings-4.2.0.tgz#e481310f049d3cf6d47e912ad09313b154f0fb33"
+  integrity sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
   dependencies:
-    lodash._reinterpolate "~3.0.0"
+    lodash._reinterpolate "^3.0.0"
 
 lodash.unescape@4.0.1:
   version "4.0.1"
@@ -8536,13 +8515,6 @@ react-dom@^16.11.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.17.0"
-
-react-dropdown@^1.6.4:
-  version "1.6.4"
-  resolved "https://registry.yarnpkg.com/react-dropdown/-/react-dropdown-1.6.4.tgz#8dce141bb26fb6b3c3696d16e06f4517728c57f4"
-  integrity sha512-zTlNRZ6vzjEPsodBNgh6Xjp9IempEx9sReH3crT2Jw4S6KW2wS/BRIH3d/grYf/iXARadDRD91//uUCs9yjoLg==
-  dependencies:
-    classnames "^2.2.3"
 
 react-error-overlay@^6.0.3:
   version "6.0.3"
