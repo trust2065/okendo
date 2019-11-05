@@ -1,22 +1,25 @@
 export enum RankTypes {
-  quality = "quality",
   design = "design",
-  experience = "experience"
+  experience = "experience",
+  quality = "quality"
 }
 export enum ButtonSelectorTypes {
-  productStandout = "productStandout",
   aboutYou = "aboutYou",
-  boughtFor = "boughtFor"
+  boughtFor = "boughtFor",
+  productStandout = "productStandout"
 }
 export enum Colors {
   black = "#272d45",
   darkGrey = "#8f9097",
-  headerBlack = "272d45",
   grey = "#d9d9d9",
   grassGreen = "#00ca9b",
+  headerBlack = "272d45",
+  hoverGrey = "#c2c2c2",
+  hoverGrassGreen = "#11b683",
   white = "#fff"
 }
 export enum FontSize {
-  small = "0.8rem",
-  medium = "0.9rem"
+  large = "1.266rem",
+  medium = "0.9rem",
+  small = "0.8rem"
 }

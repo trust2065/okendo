@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import RankBar from "./components/RankBar";
+import Button from "./components/Button";
 import ButtonSelector from "./components/ButtonSelector";
 import {
   ButtonSelectorTypes,
@@ -215,66 +216,71 @@ const App: React.FC = () => {
 
   return (
     <Container className="App">
-      <RankGroup>
-        <Label>Quality</Label>
-        <RankBar
-          currentRank={rankQuality}
-          handleClick={handleClick}
-          name={RankTypes.quality}
-          hasStroke={true}
-          rankRange={{ min: 1, max: 5, step: 1 }}
-        />
-        <Label>Design</Label>
-        <RankBar
-          currentRank={rankDesign}
-          handleClick={handleClick}
-          name={RankTypes.design}
-          hasStroke={true}
-          rankRange={{ min: 1, max: 5, step: 1 }}
-        />
-        <Label>Experience</Label>
-        <RankBar
-          currentRank={rankExperience}
-          handleClick={handleClick}
-          name={RankTypes.experience}
-          hasStroke={true}
-          rankRange={{ min: 1, max: 5, step: 1 }}
-        />
-      </RankGroup>
-      <Selection>
-        <Label>Product Standouts</Label>
-        <LabelSub>Choose up to 5 that best apply (optional)</LabelSub>
-        <ButtonSelector
-          name={ButtonSelectorTypes.productStandout}
-          handleButtonSelectorClick={handleButtonSelectorClick}
-          maxSelection={maxSelectionProductStandout}
-          buttonInfoList={productStandout}
-        ></ButtonSelector>
-      </Selection>
-
-      <Header>About You</Header>
-      <Selection>
-        <Label>Age Range</Label>
-        <LabelSub>
-          Choose <b>one</b>
-        </LabelSub>
-        <ButtonSelector
-          name={ButtonSelectorTypes.aboutYou}
-          handleButtonSelectorClick={handleSingleButtonSelectorClick}
-          buttonInfoList={aboutYou}
-        ></ButtonSelector>
-      </Selection>
-      <Selection>
-        <Label>Bought For</Label>
-        <LabelSub>
-          Choose <b>one</b>
-        </LabelSub>
-        <ButtonSelector
-          name={ButtonSelectorTypes.boughtFor}
-          handleButtonSelectorClick={handleSingleButtonSelectorClick}
-          buttonInfoList={boughtFor}
-        ></ButtonSelector>
-      </Selection>
+      <Main>
+        <RankGroup>
+          <Label>Quality</Label>
+          <RankBar
+            currentRank={rankQuality}
+            handleClick={handleClick}
+            name={RankTypes.quality}
+            hasStroke={true}
+            rankRange={{ min: 1, max: 5, step: 1 }}
+          />
+          <Label>Design</Label>
+          <RankBar
+            currentRank={rankDesign}
+            handleClick={handleClick}
+            name={RankTypes.design}
+            hasStroke={true}
+            rankRange={{ min: 1, max: 5, step: 1 }}
+          />
+          <Label>Experience</Label>
+          <RankBar
+            currentRank={rankExperience}
+            handleClick={handleClick}
+            name={RankTypes.experience}
+            hasStroke={true}
+            rankRange={{ min: 1, max: 5, step: 1 }}
+          />
+        </RankGroup>
+        <Selection>
+          <Label>Product Standouts</Label>
+          <LabelSub>Choose up to 5 that best apply (optional)</LabelSub>
+          <ButtonSelector
+            name={ButtonSelectorTypes.productStandout}
+            handleButtonSelectorClick={handleButtonSelectorClick}
+            maxSelection={maxSelectionProductStandout}
+            buttonInfoList={productStandout}
+          ></ButtonSelector>
+        </Selection>
+        <Header>About You</Header>
+        <Selection>
+          <Label>Age Range</Label>
+          <LabelSub>
+            Choose <b>one</b>
+          </LabelSub>
+          <ButtonSelector
+            name={ButtonSelectorTypes.aboutYou}
+            handleButtonSelectorClick={handleSingleButtonSelectorClick}
+            buttonInfoList={aboutYou}
+          ></ButtonSelector>
+        </Selection>
+        <Selection>
+          <Label>Bought For</Label>
+          <LabelSub>
+            Choose <b>one</b>
+          </LabelSub>
+          <ButtonSelector
+            name={ButtonSelectorTypes.boughtFor}
+            handleButtonSelectorClick={handleSingleButtonSelectorClick}
+            buttonInfoList={boughtFor}
+          ></ButtonSelector>
+        </Selection>
+        <Selection>{/* country */}</Selection>
+      </Main>
+      <Footer>
+        <SubmitButton>Next</SubmitButton>
+      </Footer>
     </Container>
   );
 };
@@ -282,10 +288,27 @@ const App: React.FC = () => {
 export default App;
 
 const Container = styled.div`
-  background: white;
+  margin: 0 auto;
+  padding: 1rem;
+  max-width: 768px;
+  @media (min-width: 480px) {
+    width: 480px;
+  }
+  @media (min-width: 768px) {
+    width: 768px;
+  }
+  @media (min-width: 1024px) {
+    width: 1024px;
+  }
+  @media (min-width: 1200px) {
+    width: 1200px;
+  }
+`;
+const Main = styled.div`
+  background: ${Colors.white};
   border-radius: 5px;
   margin: 0.5rem;
-  padding: 1rem;
+  padding: 1.5rem;
 `;
 
 const Header = styled.label`
@@ -314,4 +337,21 @@ const RankGroup = styled.div`
 
 const Selection = styled.div`
   margin-bottom: 1rem;
+`;
+
+const SubmitButton = styled(Button)`
+  background: ${Colors.grassGreen};
+  color: ${Colors.white};
+  font-size: ${FontSize.large};
+  flex-grow: 1;
+  line-height: 3.3;
+  margin: 0;
+  :hover {
+    background: ${Colors.hoverGrassGreen};
+  }
+`;
+
+const Footer = styled.div`
+  margin: 2rem 0.5rem 0.5rem;
+  display: flex;
 `;

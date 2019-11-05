@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes, { string } from "prop-types";
-import styled from "styled-components";
 import { IButtonSelector } from "../Utilities/Interface";
-import { FontSize } from "../Utilities/Enumerations";
+import Button from "./Button";
+import styled from "styled-components";
+import { FontSize, Colors } from "../Utilities/Enumerations";
 
 interface IButtonSelectorList {
   buttonInfoList: IButtonSelector[];
@@ -28,7 +29,7 @@ const ButtonSelector: React.FC<IButtonSelectorList> = ({
       buttonInfoList.filter(item => item.isActive).length < maxSelection;
 
     return (
-      <Button
+      <StyledButton
         key={`button_${buttonInfo.id}`}
         value={buttonInfo.value}
         isActive={buttonInfo.isActive}
@@ -38,7 +39,7 @@ const ButtonSelector: React.FC<IButtonSelectorList> = ({
         canSelect={canSelect}
       >
         {buttonInfo.children}
-      </Button>
+      </StyledButton>
     );
   });
   return <div>{buttonList}</div>;
@@ -67,34 +68,17 @@ interface IStyledButtonProps {
   canSelect: boolean;
 }
 
-// color: ${props => (props.isActive ? "#fff" : "#272d45")};
-const Button = styled.button<IStyledButtonProps>`
-  border-radius: 4px;
-  border: none;
-  background: ${props => (props.isActive ? "#00ca9b" : "#d9d9d9")};
+const StyledButton = styled(Button)<IStyledButtonProps>`
+  background: ${props => (props.isActive ? Colors.grassGreen : Colors.grey)};
   color: ${props =>
-    props.isActive ? "#fff" : props.canSelect ? "#272d45" : "#8f9097"};
-  font-size: ${FontSize.medium};
-  font-weight: 400;
-  line-height: 1.6;
-  margin: 0 4px 8px 0;
-  padding: 8px 8px;
-  transition: background 0.2s ease;
-
+    props.isActive
+      ? Colors.white
+      : props.canSelect
+      ? Colors.black
+      : Colors.darkGrey};
   :hover {
-    ${props =>
-      !props.isActive &&
-      `
-      background-color: #c2c2c2;
-      `}
+    background-color: ${props =>
+      props.isActive ? Colors.grassGreen : Colors.hoverGrey};
     cursor: ${props => (props.canSelect ? "pointer" : "not-allowed")};
-  }
-  :active {
-    outline: none;
-    border: none;
-  }
-  :focus {
-    outline: none;
-    border: none;
   }
 `;
