@@ -3,6 +3,7 @@ import "./App.css";
 import RankBar from "./components/RankBar";
 import Button from "./components/Button";
 import ButtonSelector from "./components/ButtonSelector";
+import Dropdown from "./components/Dropdown";
 import {
   ButtonSelectorTypes,
   Colors,
@@ -15,7 +16,7 @@ import { IButtonSelector } from "./Utilities/Interface";
 import styled from "styled-components";
 
 const App: React.FC = () => {
-  const handleClick = (name: string, v: number) => {
+  const handleRankClick = (name: string, v: number) => {
     if (!(name in RankTypes)) {
       throw new Error("rank name not in RankTypes error");
     }
@@ -68,6 +69,9 @@ const App: React.FC = () => {
         break;
       }
     }
+  };
+  const handleOptionChange = (v: { value: number; label: string }) => {
+    setCountry(v);
   };
 
   const initialValues = {
@@ -213,6 +217,7 @@ const App: React.FC = () => {
   const [boughtFor, setBoughtFor] = useState<IButtonSelector[]>(
     initialValues.boughtFor
   );
+  const [country, setCountry] = useState();
 
   return (
     <Container className="App">
@@ -221,7 +226,7 @@ const App: React.FC = () => {
           <Label>Quality</Label>
           <RankBar
             currentRank={rankQuality}
-            handleClick={handleClick}
+            handleClick={handleRankClick}
             name={RankTypes.quality}
             hasStroke={true}
             rankRange={{ min: 1, max: 5, step: 1 }}
@@ -229,7 +234,7 @@ const App: React.FC = () => {
           <Label>Design</Label>
           <RankBar
             currentRank={rankDesign}
-            handleClick={handleClick}
+            handleClick={handleRankClick}
             name={RankTypes.design}
             hasStroke={true}
             rankRange={{ min: 1, max: 5, step: 1 }}
@@ -237,7 +242,7 @@ const App: React.FC = () => {
           <Label>Experience</Label>
           <RankBar
             currentRank={rankExperience}
-            handleClick={handleClick}
+            handleClick={handleRankClick}
             name={RankTypes.experience}
             hasStroke={true}
             rankRange={{ min: 1, max: 5, step: 1 }}
@@ -276,7 +281,13 @@ const App: React.FC = () => {
             buttonInfoList={boughtFor}
           ></ButtonSelector>
         </Selection>
-        <Selection>{/* country */}</Selection>
+        <Selection>
+          <Label>Country</Label>
+          <Dropdown
+            selectedOption={country}
+            handleChange={handleOptionChange}
+          ></Dropdown>
+        </Selection>
       </Main>
       <Footer>
         <SubmitButton>Next</SubmitButton>
