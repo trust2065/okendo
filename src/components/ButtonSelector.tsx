@@ -3,7 +3,7 @@ import PropTypes, { string } from "prop-types";
 import { IButtonSelector } from "../Utilities/Interface";
 import Button from "./Button";
 import styled from "styled-components";
-import { FontSize, Colors } from "../Utilities/Enumerations";
+import { Colors } from "../Utilities/Enumerations";
 
 interface IButtonSelectorList {
   buttonInfoList: IButtonSelector[];

@@ -1,5 +1,12 @@
 # Okendo
 
+## Run
+
+```cmd
+  yarn
+  yarn start
+```
+
 ## Line between elements
 
 I choose to create some div between elements and gives it `flex-grow: 1;`.
@@ -21,3 +28,13 @@ I use TypeScript to check props types
 Extract constant values thanks to enum in TypeScript
 
 `RankTypes, ButtonSelectorTypes, Colors, FontSize`
+
+## Dropdown
+
+I use "react-select" component and styling it to meet requirement
+reference: <https://react-select.com/styles#provided-styles-and-state>
+
+### TODO
+
+1. functional test
+2. react component test
