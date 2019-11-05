@@ -1,11 +1,15 @@
 # Okendo
 
-## Run
+## How to run
 
 ```cmd
   yarn
   yarn start
 ```
+
+## Ready to test url
+
+<https://okendo.netlify.com/>
 
 ## Line between elements
 
